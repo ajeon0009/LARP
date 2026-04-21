@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LARP | AI Websites for Barbershops & Nail Salons</title>
+  <meta name="description" content="LARP builds AI-powered websites for barbershops and nail salons. Launch fast, look professional, and turn more visitors into booked appointments." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111831;
+      --soft: #19223f;
+      --text: #f3f7ff;
+      --muted: #b7c2dd;
+      --accent: #7c5cff;
+      --accent-2: #21d4a7;
+      --line: rgba(255,255,255,.08);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, #18244d 0%, var(--bg) 42%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(11,16,32,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .brand { font-weight: 800; letter-spacing: .08em; }
+    .nav-links { display: flex; gap: 1rem; align-items: center; }
+    .nav-links a { color: var(--muted); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 999px; padding: .9rem 1.2rem; font-weight: 700;
+      transition: .2s ease; border: 1px solid transparent;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #9f7cff); color: white; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(124,92,255,.28); }
+    .btn-secondary { border-color: var(--line); background: rgba(255,255,255,.03); }
+    .hero { padding: 5.5rem 0 4rem; }
+    .hero-grid {
+      display: grid; gap: 2rem; align-items: center;
+      grid-template-columns: 1.15fr .85fr;
+    }
+    .eyebrow {
+      display: inline-block; margin-bottom: 1rem; padding: .4rem .75rem;
+      border-radius: 999px; background: rgba(33,212,167,.12); color: #98f0da;
+      border: 1px solid rgba(33,212,167,.22); font-size: .92rem; font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.02; margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+    .hero p {
+      color: var(--muted); font-size: 1.08rem; max-width: 58ch;
+    }
+    .hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .hero-card, .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid var(--line); border-radius: 24px; padding: 1.2rem;
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+    .mockup {
+      background: var(--panel); border-radius: 18px; overflow: hidden; border: 1px solid var(--line);
+    }
+    .mockup-bar { display: flex; gap: .4rem; padding: .8rem; border-bottom: 1px solid var(--line); }
+    .dot { width: .68rem; height: .68rem; border-radius: 999px; background: #ff7a7a; }
+    .dot:nth-child(2) { background: #ffd166; }
+    .dot:nth-child(3) { background: #7bf1a8; }
+    .mockup-body { padding: 1rem; display: grid; gap: .9rem; }
+    .mockup-block, .pill {
+      background: var(--soft); border-radius: 14px; border: 1px solid var(--line);
+    }
+    .mockup-block { min-height: 72px; }
+    .pill-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .pill { padding: .65rem .9rem; color: var(--muted); font-size: .92rem; }
+    section { padding: 4rem 0; }
+    .section-head { max-width: 700px; margin-bottom: 1.8rem; }
+    .section-head h2 { font-size: clamp(1.9rem, 4vw, 3rem); margin: 0 0 .5rem; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .grid-3, .grid-2 {
+      display: grid; gap: 1rem;
+    }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card h3 { margin-top: 0; margin-bottom: .5rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .number {
+      width: 2rem; height: 2rem; border-radius: 999px; display: inline-grid; place-items: center;
+      background: rgba(124,92,255,.18); border: 1px solid rgba(124,92,255,.28); margin-bottom: .8rem; font-weight: 800;
+    }
+    .demo {
+      padding: 1rem; border-radius: 20px; background: var(--panel); border: 1px solid var(--line);
+    }
+    .demo-top { display: flex; align-items: center; justify-content: space-between; gap: .8rem; }
+    .badge { padding: .35rem .65rem; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--muted); font-size: .84rem; }
+    .demo-screen { margin-top: 1rem; min-height: 220px; border-radius: 16px; background: linear-gradient(135deg, #202b54, #10162e); border: 1px solid var(--line); padding: 1rem; }
+    .demo-screen h4 { margin: 0 0 .4rem; }
+    .demo-screen p { color: var(--muted); margin: 0 0 1rem; }
+    .quote { font-size: 1.02rem; }
+    .quote strong { display: block; margin-top: .9rem; }
+    .cta {
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(33,212,167,.12));
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 28px; padding: 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    .cta h2 { margin: 0 0 .4rem; }
+    .cta p { margin: 0; color: var(--muted); }
+    footer { padding: 2rem 0 3rem; color: var(--muted); }
+    .small { font-size: .92rem; color: var(--muted); }
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .nav-links a:not(.btn) { display: none; }
+      .hero { padding-top: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">LARP</a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#industries">Who it's for</a>
+        <a href="#demos">Demos</a>
+        <a href="#contact" class="btn btn-primary">Get Your Website</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">AI websites for service businesses</span>
+        <h1>Websites built to get barbershops and nail salons more bookings.</h1>
+        <p>
+          LARP creates clean, modern websites for service-based small businesses with the pages, visuals, and structure needed to turn visitors into paying clients.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get Your Website</a>
+          <a href="#demos" class="btn btn-secondary">See Demo Layouts</a>
+        </div>
+        <p class="small">Fast setup. Mobile-friendly. Built for businesses that need leads, not fluff.</p>
+      </div>
+      <div class="hero-card">
+        <div class="mockup">
+          <div class="mockup-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="mockup-body">
+            <div class="pill-row">
+              <div class="pill">Online booking</div>
+              <div class="pill">Service menu</div>
+              <div class="pill">Photo gallery</div>
+            </div>
+            <div class="mockup-block"></div>
+            <div class="grid-2">
+              <div class="mockup-block"></div>
+              <div class="mockup-block"></div>
+            </div>
+            <div class="mockup-block"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Simple enough to explain without needing a five-slide deck and a hostage negotiator.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="number">1</div>
+          <h3>Tell us about your business</h3>
+          <p>Share your business name, services, style, and what kind of clients you want to attract.</p>
+        </article>
+        <article class="card">
+          <div class="number">2</div>
+          <h3>Your site is mapped out fast</h3>
+          <p>LARP creates a focused website structure for your business instead of generic cookie-cutter pages.</p>
+        </article>
+        <article class="card">
+          <div class="number">3</div>
+          <h3>Launch and start converting</h3>
+          <p>Go live with a polished website designed to help people book, call, and trust your brand.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Built for the businesses we know best</h2>
+        <p>LARP is starting with two niches where the website has to look sharp and drive real appointments.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Barbershops</h3>
+          <p>Highlight services, pricing, reviews, haircut galleries, and a strong call to book an appointment.</p>
+        </article>
+        <article class="card">
+          <h3>Nail salons</h3>
+          <p>Show off designs, service menus, polish your brand image, and make it easy for clients to book.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="demos">
+    <div class="container">
+      <div class="section-head">
+        <h2>Demo website directions</h2>
+        <p>These give potential clients a quick sense of what LARP can create for their business.</p>
+      </div>
+      <div class="grid-2">
+        <article class="demo">
+          <div class="demo-top">
+            <h3>Barbershop Demo</h3>
+            <span class="badge">Bold · Clean · Booking-first</span>
+          </div>
+          <div class="demo-screen">
+            <h4>Fresh cuts. Smooth booking.</h4>
+            <p>A sharp layout with pricing, transformations, team profiles, and a clear booking CTA.</p>
+            <div class="pill-row">
+              <div class="pill">Fade Gallery</div>
+              <div class="pill">Services</div>
+              <div class="pill">Book Now</div>
+            </div>
+          </div>
+        </article>
+        <article class="demo">
+          <div class="demo-top">
+            <h3>Nail Salon Demo</h3>
+            <span class="badge">Elegant · Modern · Visual</span>
+          </div>
+          <div class="demo-screen">
+            <h4>Beautiful nails deserve a beautiful site.</h4>
+            <p>A polished design with service highlights, style gallery, testimonials, and simple scheduling.</p>
+            <div class="pill-row">
+              <div class="pill">Nail Art Gallery</div>
+              <div class="pill">Services</div>
+              <div class="pill">Appointments</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Why small businesses choose LARP</h2>
+        <p>Because they need more than a site that just exists. They need one that actually helps the business grow.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Made for mobile</h3>
+          <p>Most customers will discover and visit on their phone, so the experience needs to feel smooth from the first tap.</p>
+        </article>
+        <article class="card">
+          <h3>Focused on conversion</h3>
+          <p>Every section is there for a reason: build trust, explain the offer, and move visitors toward contacting or booking.</p>
+        </article>
+        <article class="card">
+          <h3>Niche-specific structure</h3>
+          <p>Barbershops and nail salons need different visuals, language, and priorities. LARP is built around that.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>What people should feel when they land on your site</h2>
+        <p>Trusted. Interested. Ready to book. That’s the whole game.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card quote">
+          “This looks way more professional than what we had before, and customers finally know where to click.”
+          <strong>— Example barbershop client</strong>
+        </article>
+        <article class="card quote">
+          “The site fits our brand, shows our work clearly, and makes us feel like a real business online.”
+          <strong>— Example nail salon client</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Ready to make LARP real?</h2>
+          <p>Use this section as your first call-to-action while you collect leads manually by email, DM, or a simple form.</p>
+        </div>
+        <a class="btn btn-primary" href="mailto:hello@larpsite.com">Email LARP</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>LARP — AI websites for barbershops and nail salons.</div>
+    </div>
+  </footer>
+</body>
+</html>
